@@ -17,6 +17,7 @@ export class HomePage {
   isSunny: boolean = false;
   isRainy: boolean = false;
 
+  today: any; 
   constructor(
     private location: LocationProvider, 
     private weather: WeatherProvider,
@@ -33,6 +34,10 @@ export class HomePage {
     return this.day[new Date(date).getDay()];
   }
 
+  roundToNear(num) {
+    return Math.round(num);
+  }
+
   getWeatherData() {
     let tmpData;
     this.feedback.presentLoadingSpinner('Getting location...');
@@ -43,6 +48,7 @@ export class HomePage {
         this.feedback.dismissLoadingSpinner();
         tmpData = data;
         this.data = tmpData.list.filter(d => d.dt_txt.endsWith('21:00:00'));
+        this.today = this.data[0];
         console.log(this.data);
       }).catch(error => {
         this.feedback.dismissLoadingSpinner();
