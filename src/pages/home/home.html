@@ -25,5 +25,19 @@
     </ion-grid>
   </div>
 
-  
+  <div class="weekdays" *ngFor="let d of weekdays">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="left" col-4>
+          <p>{{d.day}}</p>
+        </ion-col>
+        <ion-col class="center" col-4>
+          <p>x</p>
+        </ion-col>
+        <ion-col class="right" col-4>
+          <p>{{d.temp}}<sup>&deg;</sup></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
