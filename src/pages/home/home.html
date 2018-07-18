@@ -5,7 +5,7 @@
     <h2>{{ roundToNear(today?.main.temp) }}<sup>&deg;</sup></h2>
     <p>{{ today?.weather[0]?.main?.toUpperCase() }}</p>
   </div>
-  <img class="background" src="../../assets/Images/sea_cloudy.png" alt="">
+  <img class="background" [src]="imageBG" [alt]="today?.weather[0]?.main">
   <div class="info">
     <ion-grid>
       <ion-row>
@@ -32,7 +32,7 @@
           <p>{{ getDay(api.dt_txt) }}</p>
         </ion-col>
         <ion-col class="center" col-4>
-          <img src="../../assets/Icons/partlysunny@2x.png" alt="">
+          <img [src]="getIconByWeatherDescription(api.weather[0]?.main)" [alt]="api.weather[0]?.main">
         </ion-col>
         <ion-col class="right" col-4>
           <p>{{ roundToNear(api.main.temp) }}<sup>&deg;</sup></p>
