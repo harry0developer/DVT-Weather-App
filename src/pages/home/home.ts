@@ -8,36 +8,9 @@ import { FeedbackProvider } from '../../providers/feedback/feedback';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
-  weekdays = [
-    {
-      day: 'Monday',
-      temp: 22,
-    },
-    {
-      day: 'Tuesday',
-      temp: 21,
-    },
-    {
-      day: 'Wednesday',
-      temp: 30,
-    },
-    {
-      day: 'Thursday',
-      temp: 18,
-    },
-    {
-      day: 'Friday',
-      temp: 19,
-    }
-    ,
-    {
-      day: 'Friday',
-      temp: 19,
-    }
-  ];
+export class HomePage { 
 
-  day: Array<string> = ['Sunday','Moday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  day: Array<string> = ['Sunday','Moday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   data: any = [];
 
   isCloudy: boolean = true;
@@ -56,9 +29,10 @@ export class HomePage {
     this.getWeatherData();
   }
 
-  getDay(timestamp) {
-    return new Date(timestamp);
+  getDay(date) {
+    return this.day[new Date(date).getDay()];
   }
+
   getWeatherData() {
     let tmpData;
     this.feedback.presentLoadingSpinner('Getting location...');
