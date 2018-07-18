@@ -1,7 +1,6 @@
 page-home {
     .content {
-        background-color: #628493;
-        color: #fff;
+        color: $white;
         text-align: center;
         [col-4] {
             padding: 0;
@@ -10,10 +9,19 @@ page-home {
             width: 100%;
         }
     }
+    .cloudy {
+        background-color: $cloudy;
+    }
+    .sunny {
+        background-color: $sunny;
+    }
+    .rainy {
+        background-color: $rainy;
+    }
     .temperature {
         position: absolute;
         top: 16%;
-        color: #fff;
+        color: $white;
         text-align: center;
         left: 50%;
         h2 {
@@ -37,7 +45,7 @@ page-home {
         }
     }
     .info {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $white;
         h4 {
             font-size: 1.2em;
         }

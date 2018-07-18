@@ -33,6 +33,10 @@ export class HomePage {
       temp: 19,
     }
   ];
+
+  isCloudy: boolean = true;
+  isSunny: boolean = false;
+  isRainy: boolean = false;
   constructor(public navCtrl: NavController) {
 
   }
