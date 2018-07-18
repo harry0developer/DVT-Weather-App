@@ -1,5 +1,36 @@
 page-home {
+    .content {
+        background-color: #628493;
+        color: #fff;
+        text-align: center;
+        [col-4] {
+            padding: 0;
+        }
+    }
     img {
         width: 100%;
+    }
+ 
+    .info {
+        border-bottom: 1px solid #fff;
+        h4 {
+            font-size: 1.2em;
+        }
+        p {
+            font-size: .9em;
+        }
+        h4, p {
+            margin: 0;
+        }
+
+    } 
+    .left {
+        text-align: left;
+    }
+    .center {
+        text-align: center;
+    }
+    .right {
+        text-align: right;
     }
 }
