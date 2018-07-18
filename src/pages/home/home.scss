@@ -57,6 +57,13 @@ page-home {
         }
     }
 
+    .info, .weekdays {
+        padding: 5px 10px;
+        sup {
+            font-size: 1.1em;
+            top: -.1em;
+        }
+    }
     .left {
         text-align: left;
     }
