@@ -17,7 +17,7 @@ export class HomePage {
   isSunny: boolean = false;
   isRainy: boolean = false;
   imageBG: string = '';
-  temperatureIcon: string = '';
+  error: boolean = false;
 
   baseImagesUrl: string = '../../assets/Images/sea_';
   baseIconsUrl: string = '../../assets/Icons/';
@@ -72,6 +72,7 @@ export class HomePage {
     }
       return this.baseIconsUrl + 'partlysunny@2x.png'
   }
+
   getWeatherData() {
     let tmpData;
     this.feedback.presentLoadingSpinner('Getting location...');
@@ -85,13 +86,19 @@ export class HomePage {
         this.today = this.data[0];
         this.setTempTheme(this.today);
       }).catch(error => {
+        this.error = true;
         this.feedback.dismissLoadingSpinner();
         console.log(error);
       })
     }).catch(error => {
+      this.error = true;
       this.feedback.dismissLoadingSpinner();
       console.log(error);
     });
   }
 
+  retry() {
+    this.error = false;
+    this.getWeatherData();
+  }
 }

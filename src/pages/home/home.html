@@ -1,6 +1,11 @@
 <ion-header></ion-header>
 
 <ion-content class="content" [ngClass]="{'cloudy': isCloudy, 'sunny': isSunny, 'rainy': isRainy}">
+  <div class="error" *ngIf="error">
+    <h2>Oopsie</h2>
+    <p>An error has occured, please try again</p>
+    <button ion-button block (click)="retry()">Retry</button>
+  </div>
   <div class="temperature" *ngIf="data.length">
     <h2>{{ roundToNear(today?.main.temp) }}<sup>&deg;</sup></h2>
     <p>{{ today?.weather[0]?.main?.toUpperCase() }}</p>
