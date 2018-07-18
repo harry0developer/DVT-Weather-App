@@ -6,6 +6,33 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  weekdays = [
+    {
+      day: 'Monday',
+      temp: 22,
+    },
+    {
+      day: 'Tuesday',
+      temp: 21,
+    },
+    {
+      day: 'Wednesday',
+      temp: 30,
+    },
+    {
+      day: 'Thursday',
+      temp: 18,
+    },
+    {
+      day: 'Friday',
+      temp: 19,
+    }
+    ,
+    {
+      day: 'Friday',
+      temp: 19,
+    }
+  ];
   constructor(public navCtrl: NavController) {
 
   }
