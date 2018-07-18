@@ -6,9 +6,9 @@ page-home {
         [col-4] {
             padding: 0;
         }
-    }
-    img {
-        width: 100%;
+        img.background {
+            width: 100%;
+        }
     }
     .temperature {
         position: absolute;
