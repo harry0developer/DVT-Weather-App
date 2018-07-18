@@ -37,6 +37,9 @@ export class HomePage {
     }
   ];
 
+  day: Array<string> = ['Sunday','Moday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  data: any = [];
+
   isCloudy: boolean = true;
   isSunny: boolean = false;
   isRainy: boolean = false;
@@ -51,17 +54,22 @@ export class HomePage {
 
   ionViewDidLoad() { 
     this.getWeatherData();
-  
   }
 
+  getDay(timestamp) {
+    return new Date(timestamp);
+  }
   getWeatherData() {
+    let tmpData;
     this.feedback.presentLoadingSpinner('Getting location...');
     this.location.getLocation().then(latLng => {
       this.feedback.dismissLoadingSpinner();
       this.feedback.presentLoadingSpinner('Getting weather data...');
       this.weather.getWeatherData(latLng).then(data => {
         this.feedback.dismissLoadingSpinner();
-        console.log(data);
+        tmpData = data;
+        this.data = tmpData.list.filter(d => d.dt_txt.endsWith('21:00:00'));
+        console.log(this.data);
       }).catch(error => {
         this.feedback.dismissLoadingSpinner();
         console.log(error);
