@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FeedbackProvider } from '../providers/feedback/feedback';
 import { LocationProvider } from '../providers/location/location';
+import { WeatherProvider } from '../providers/weather/weather';
  
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LocationProvider } from '../providers/location/location';
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FeedbackProvider,
-    LocationProvider, 
+    LocationProvider,
+    WeatherProvider, 
   ]
 })
 export class AppModule {}
