@@ -10,7 +10,32 @@ page-home {
     img {
         width: 100%;
     }
- 
+    .temperature {
+        position: absolute;
+        top: 16%;
+        color: #fff;
+        text-align: center;
+        left: 50%;
+        h2 {
+            font-size: 5em;
+            font-weight: bold;
+            padding-left: 15px;
+            margin-bottom: -30px;
+            sup {
+                font-weight: 100;
+                font-size: .8em
+            }
+        }
+        p {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        h2, p {
+            margin-right: -50%;
+            transform: translate(-50%, -50%) ;
+        }
+    }
     .info {
         border-bottom: 1px solid #fff;
         h4 {
