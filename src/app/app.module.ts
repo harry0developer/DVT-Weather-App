@@ -3,10 +3,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FeedbackProvider } from '../providers/feedback/feedback';
+import { LocationProvider } from '../providers/location/location';
  
 @NgModule({
   declarations: [
@@ -25,8 +27,10 @@ import { FeedbackProvider } from '../providers/feedback/feedback';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FeedbackProvider, 
+    FeedbackProvider,
+    LocationProvider, 
   ]
 })
 export class AppModule {}
