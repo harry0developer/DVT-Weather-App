@@ -84,7 +84,6 @@ export class HomePage {
         this.data = tmpData.list.filter(d => d.dt_txt.endsWith('21:00:00'));
         this.today = this.data[0];
         this.setTempTheme(this.today);
-        console.log(this.data);
       }).catch(error => {
         this.feedback.dismissLoadingSpinner();
         console.log(error);
