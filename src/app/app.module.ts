@@ -25,7 +25,7 @@ import { WeatherProvider } from '../providers/weather/weather';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   providers: [
     StatusBar,
