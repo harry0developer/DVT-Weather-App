@@ -8,7 +8,7 @@
   </div>
   <div class="temperature" *ngIf="data.length">
     <h2>{{ roundToNear(today?.main.temp) }}<sup>&deg;</sup></h2>
-    <p>{{ today?.weather[0]?.main?.toUpperCase() }}</p>
+    <p>{{ getWeatherDescription(today?.weather[0]?.main)}}</p>
   </div>
   <img *ngIf="data.length" class="background" [src]="imageBG" [alt]="today?.weather[0]?.main">
   <div class="info" *ngIf="data.length">
