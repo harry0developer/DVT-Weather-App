@@ -5,8 +5,7 @@ import { WeatherProvider } from '../../providers/weather/weather';
 import { FeedbackProvider } from '../../providers/feedback/feedback';
 import { MyApp } from "../../app/app.component";
 import { IonicModule } from "ionic-angular";
-import { By, BrowserModule } from "@angular/platform-browser";
-import { ElementRef } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 import { HomePage } from './home';
 import { ComponentFixture, async, TestBed } from "@angular/core/testing";
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,10 +19,11 @@ import {
 } from '../../../test-config/mocks-ionic';
 import { HttpModule } from '@angular/http';
 
-describe('HomePage',() => {
+describe('HomePage component',() => {
     let component: HomePage;
     let fixture: ComponentFixture<HomePage>;
-
+    let spyOnLocation;
+    let loc: LocationProvider;
     beforeEach(async(() => {
 
         TestBed.configureTestingModule({
@@ -46,7 +46,6 @@ describe('HomePage',() => {
                 WeatherProvider, 
               ]
         });
-
     }));
 
     beforeEach(() => {
@@ -59,9 +58,19 @@ describe('HomePage',() => {
         component = null;
     });
 
-    it('should return day of week as string', () => {
+    it('getDay() should return day of week as string', () => {
         const date = '2018-07-19 09:00:00';
-        expect(component.getDay(date)).toBe('Thursday')
+        expect(component.getDay(date)).toBe('Thursday');
     }); 
 
+    it('roundToNear() should convert fraction to whole number', () => {
+        const number = 21.2;
+        expect(component.roundToNear(number)).toBe(21);
+    }); 
+
+    it('getIconByWeatherDescription() should return full image path', () => {
+        const desc = 'clear';
+        const imgUrl = '../../assets/Icons/clear@2x.png';
+        expect(component.getIconByWeatherDescription(desc)).toBe(imgUrl);
+    }); 
 });
