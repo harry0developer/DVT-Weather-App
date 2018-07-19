@@ -1,5 +1,5 @@
 import { Component, ErrorHandler } from '@angular/core';
-import { NavController, IonicApp, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler } from 'ionic-angular';
 import { LocationProvider } from '../../providers/location/location';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { FeedbackProvider } from '../../providers/feedback/feedback';
@@ -72,5 +72,14 @@ describe('HomePage component',() => {
         const desc = 'clear';
         const imgUrl = '../../assets/Icons/clear@2x.png';
         expect(component.getIconByWeatherDescription(desc)).toBe(imgUrl);
+    }); 
+
+    it('getWeatherDescription() should return weather description in uppercase', () => {
+        const clear = 'clear';
+        const rain = 'RAINY';
+        const clouds = 'clouds';
+        expect(component.getWeatherDescription(clear)).toBe('SUNNY');
+        expect(component.getWeatherDescription(clouds)).toBe('CLOUDY');
+        expect(component.getWeatherDescription(rain)).toBe('RAINY');
     }); 
 });
