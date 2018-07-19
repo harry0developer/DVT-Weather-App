@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { LocationProvider } from '../../providers/location/location';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { FeedbackProvider } from '../../providers/feedback/feedback';
@@ -100,5 +99,19 @@ export class HomePage {
   retry() {
     this.error = false;
     this.getWeatherData();
+  }
+
+  getWeatherDescription(desc): string {
+    if (desc.toLowerCase() === 'clouds' || desc.toLowerCase() === 'cloudy') {
+      return 'CLOUDY';
+    } else if (desc.toLowerCase() === 'sunny' || desc.toLowerCase() === 'clear') {
+      return 'SUNNY';
+    }
+    else if (desc.toLowerCase() === 'rain' || desc.toLowerCase() === 'rainy') {
+      return 'RAINY';
+    } else {
+      return desc.toUpperCase();
+    }
+
   }
 }
