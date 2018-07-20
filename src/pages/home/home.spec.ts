@@ -59,13 +59,17 @@ describe('HomePage component',() => {
     });
 
     it('getDay() should return day of week as string', () => {
-        const date = '2018-07-19 09:00:00';
-        expect(component.getDay(date)).toBe('Thursday');
+        const thur = '2018-07-19 09:00:00';
+        const wed = '2018-07-18 03:00:00';
+        expect(component.getDay(thur)).toBe('Thursday');
+        expect(component.getDay(wed)).toBe('Wednesday');
     }); 
 
     it('roundToNear() should convert fraction to whole number', () => {
-        const number = 21.2;
-        expect(component.roundToNear(number)).toBe(21);
+        const roundUp = 21.6;
+        const roudnDown = 21.2;
+        expect(component.roundToNear(roundUp)).toBe(22);
+        expect(component.roundToNear(roudnDown)).toBe(21);
     }); 
 
     it('getIconByWeatherDescription() should return full image path', () => {
