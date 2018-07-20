@@ -2,7 +2,7 @@
 
 ## Installation
 
-###Run
+### Run
 
 ```bash
 $ npm install
@@ -10,7 +10,7 @@ $ npm install
 
 ## Testing
 
-###Run
+### Run
 
 ```bash
 $ npm run test
